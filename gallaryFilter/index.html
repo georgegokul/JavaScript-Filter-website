@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Filter using Javascript</title>
+     <link rel="stylesheet" href="styles.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+     <section>
+          <ul>
+               <li class="list active" data-filter="all">All</li>
+               <li class="list" data-filter="'Mobile">Mobile</li>
+               <li class="list" data-filter="'Camera">Camera</li>
+               <li class="list" data-filter="'Head Phone">Head Phone</li>
+               <li class="list" data-filter="'Shoe">Shoe</li>
+          </ul>
+     </section>
+          <div class="product">
+               <div class="itemBox" data-item="Mobile"><img src="mobilephone\mobile1.png" alt=""></div>
+               <div class="itemBox" data-item="Head Phone"><img src="Headphone/headphones1.png" alt=""></div>
+               <div class="itemBox" data-item="Shoe"><img src="shoe/shoes1.png" alt=""></div>
+               <div class="itemBox" data-item="Mobile"><img src="mobilephone\mobile2.png" alt=""></div>
+               <div class="itemBox" data-item="Camera"><img src="camera\camera4.png" alt=""></div>
+               <div class="itemBox" data-item="Head Phone"><img src="Headphone/headphones2.png" alt=""></div>
+               <div class="itemBox" data-item="Shoe"><img src="shoe/shoes2.png" alt=""></div>
+               <div class="itemBox" data-item="Mobile"><img src="mobilephone\mobile4.png" alt=""></div>
+               <div class="itemBox" data-item="Camera"><img src="camera\camera5.png" alt=""></div>
+               <div class="itemBox" data-item="Head Phone"><img src="Headphone/headphones3.png" alt=""></div>
+               <div class="itemBox" data-item="Shoe"><img src="shoe/shoes3.png" alt=""></div>
+               <div class="itemBox" data-item="Mobile"><img src="mobilephone\mobile5.png" alt=""></div>
+               <div class="itemBox" data-item="Camera"><img src="camera\camera6.png" alt=""></div>
+               <div class="itemBox" data-item="Head Phone"><img src="Headphone/headphones4.png" alt=""></div>
+               <div class="itemBox" data-item="Shoe"><img src="shoe/shoes4.png" alt=""></div>
+               <div class="itemBox" data-item="Camera"><img src="camera/camera7.png" alt=""></div>
+               <div class="itemBox" data-item="Mobile"><img src="mobilephone/mobile7.png" alt=""></div>
+               <div class="itemBox" data-item="Mobile"><img src="mobilephone/moblie3.png" alt=""></div>
+          
+          </div>
+     <script>
+          let list=document.querySelectorAll('.list');
+          let itemBox=document.querySelectorAll('.itemBox');
+          
+          for (let i = 0; i<list.length; i++) {
+               list[i].addEventListener('click',function(){
+                    for ( let j=0; j<list.length; j++){
+                         list[j].classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    let filterData=this.getAttribute("data-filter");
+                    for (let k=0; k<itemBox.length; k++) {
+                    
+                         itemBox[k].classList.add('active');
+                         itemBox[k].classList.remove('hide');
+
+
+                         if(itemBox[k].getAttribute('data-item') == filterData || filterData=="all") {
+                              itemBox[k].classList.add('hide');
+                              itemBox[k].classList.remove('active');
+
+
+
+                         }
+                    }
+
+
+               })
+          }
+     </script>
+</body>
+</html>
